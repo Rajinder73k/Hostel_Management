@@ -30,6 +30,7 @@ class Routes extends Component {
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/Thankyou" component={Thankyou} />
+                    <Route path="*" component={Thankyou}  />
                     <Redirect to="/dashboard" />
                 </Switch>
                 <Footer />
