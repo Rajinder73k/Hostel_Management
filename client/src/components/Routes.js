@@ -18,7 +18,6 @@ class Routes extends Component {
     render() {
         return (
             < div className="App" >
-                <Router>
                 <Navbar />
                 
                 <Switch>
@@ -36,7 +35,6 @@ class Routes extends Component {
                     <Redirect to="/dashboard" />
                 </Switch>
                 <Footer />
-                </Router>
             </div >
         )
     }
