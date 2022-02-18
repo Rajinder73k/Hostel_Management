@@ -39,9 +39,9 @@ class Dashboard extends Component {
             <img src={bedRoom} className="card-img-top" alt="Cleaning" />
             <div className="card-body">
               <h5 className="card-title">Room Repair/Cleaning Status</h5>
-              <a href="/block">
+              <Link to="/block">
                 Add Room Repair/Cleaning or Check Info
-                </a>
+                </Link>
             </div>
           </div>
 
@@ -49,9 +49,9 @@ class Dashboard extends Component {
             <img src={staff} className="card-img-top" alt="Cleaning" />
             <div className="card-body">
               <h5 className="card-title">Staff Info</h5>
-              <a href="/staff">
+              <Link to="/staff">
                 Add more Staff or Check their info
-              </a>
+              </Link>
             </div>
           </div>
 
