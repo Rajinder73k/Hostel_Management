@@ -10,7 +10,7 @@ import {
 export const getStudentDetails = (batch) => dispatch => {
     dispatch(enableStudentDetailsLoading());
     axios
-        .get(`/api/student/batch/${batch}`)
+        .get(`${process.env.REACT_APP_BACKEND}api/student/batch/${batch}`)
         .then((res) => {
 
             dispatch({
@@ -30,7 +30,7 @@ export const getStudentDetails = (batch) => dispatch => {
 
 export const createStudentDetails = studentData => dispatch => {
     axios
-        .post("/api/student", studentData)
+        .post(`${process.env.REACT_APP_BACKEND}api/student`, studentData)
         .then((res) => {
             dispatch({
                 type: GET_STUDENT_DETAILS,

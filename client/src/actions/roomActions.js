@@ -10,7 +10,7 @@ import {
 export const getRoomAction = (block) => dispatch => {
     dispatch(enableRoomActionLoading());
     axios
-        .get(`/api/room/block/${block}`)
+        .get(`${process.env.REACT_APP_BACKEND}api/room/block/${block}`)
         .then((res) => {
 
             dispatch({
@@ -30,7 +30,7 @@ export const getRoomAction = (block) => dispatch => {
 
 export const createRoomAction = roomActionData => dispatch => {
     axios
-        .post("/api/room/", roomActionData)
+        .post(`${process.env.REACT_APP_BACKEND}api/room/`, roomActionData)
         .then((res) => {
             dispatch({
                 type: GET_ROOM_ACTION,

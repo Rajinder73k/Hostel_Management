@@ -24,11 +24,11 @@ class Staff extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
     async onDelete(_id) {
-        await axios.delete(`/api/staff/${_id}`).then(res => console.log(res)).catch(err => console.log(err));
+        await axios.delete(`${process.env.REACT_APP_BACKEND}api/staff/${_id}`).then(res => console.log(res)).catch(err => console.log(err));
         await this.props.getStaffDetails();
     }
     async onAvailabilityChange(_id, isAvailable) {
-        await axios.put(`/api/staff/availability/${_id}`, { isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
+        await axios.put(`${process.env.REACT_APP_BACKEND}api/staff/availability/${_id}`, { isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
         await this.props.getStaffDetails();
     }
     async onSubmit(e) {

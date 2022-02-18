@@ -10,7 +10,7 @@ import {
 export const getStaffDetails = () => dispatch => {
     dispatch(enableStaffLoading());
     axios
-        .get(`/api/staff/`)
+        .get(`${process.env.REACT_APP_BACKEND}api/staff/`)
         .then((res) => {
 
             dispatch({
@@ -30,7 +30,7 @@ export const getStaffDetails = () => dispatch => {
 
 export const createStaffDetails = staffData => dispatch => {
     axios
-        .post("/api/staff/", staffData)
+        .post(`${process.env.REACT_APP_BACKEND}api/staff/`, staffData)
         .then((res) => {
             dispatch({
                 type: GET_STAFF_DETAILS,

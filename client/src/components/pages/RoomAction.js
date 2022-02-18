@@ -26,7 +26,7 @@ class RoomAction extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
     async onDelete(_id) {
-        await axios.delete(`/api/room/${_id}`).then(res => console.log(res)).catch(err => console.log(err));
+        await axios.delete(`${process.env.REACT_APP_BACKEND}api/room/${_id}`).then(res => console.log(res)).catch(err => console.log(err));
         await this.props.getRoomAction(this.props.match.params.id);
     }
     async onSubmit(e) {

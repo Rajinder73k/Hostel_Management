@@ -51,11 +51,11 @@ class StudentDetails extends Component {
         });
     }
     async onDelete(id) {
-        await axios.delete(`/api/student`, { data: { id } }).then(res => console.log(res)).catch(err => console.log(err));
+        await axios.delete(`${process.env.REACT_APP_BACKEND}api/student`, { data: { id } }).then(res => console.log(res)).catch(err => console.log(err));
         await this.props.getStudentDetails(this.props.match.params.id);
     }
     async onStatusChange(id, isAvailable) {
-        await axios.put(`/api/student/availability`, { id, isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
+        await axios.put(`${process.env.REACT_APP_BACKEND}api/student/availability`, { id, isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
         await this.props.getStudentDetails(this.props.match.params.id);
     }
     UNSAFE_componentWillReceiveProps(nextProps) {

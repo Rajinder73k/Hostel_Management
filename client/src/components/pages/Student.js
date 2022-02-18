@@ -22,17 +22,17 @@ class Student extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
     async onDelete(id) {
-        await axios.delete(`/api/student`, { data: { id } }).then(res => console.log(res)).catch(err => console.log(err));
+        await axios.delete(`${process.env.REACT_APP_BACKEND}api/student`, { data: { id } }).then(res => console.log(res)).catch(err => console.log(err));
         await this.onFtechDetails();
     }
     async onStatusChange(id, isAvailable) {
-        await axios.put(`/api/student/availability`, { id, isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
+        await axios.put(`${process.env.REACT_APP_BACKEND}api/student/availability`, { id, isAvailable: !isAvailable }).then(res => console.log(res)).catch(err => console.log(err));
         await this.onFtechDetails();
     }
     async onFtechDetails() {
         this.setState({ loading: true });
         if (this.state.findBy === 'id') {
-            await axios.get(`/api/student/id/${this.state.val}`).then((res) => {
+            await axios.get(`${process.env.REACT_APP_BACKEND}api/student/id/${this.state.val}`).then((res) => {
                 this.setState({ data: res, loading: false });
                 console.log(res);
                 if (!res.data.length) {
@@ -43,7 +43,7 @@ class Student extends Component {
             );
         }
         else if (this.state.findBy === 'room') {
-            await axios.get(`/api/student/room/${this.state.val}`).then((res) => {
+            await axios.get(`${process.env.REACT_APP_BACKEND}api/student/room/${this.state.val}`).then((res) => {
                 this.setState({ data: res, loading: false });
                 console.log(res);
                 if (!res.data.length) {
@@ -54,7 +54,7 @@ class Student extends Component {
                 console.log(err)
             );
         } else if (this.state.findBy === 'isAvailable') {
-            await axios.get(`/api/student/all`).then((res) => {
+            await axios.get(`${process.env.REACT_APP_BACKEND}api/student/all`).then((res) => {
                 let tempVal = this.state.val;
                 tempVal = tempVal.trim().toLowerCase();
                 if (tempVal === 'absent') {
