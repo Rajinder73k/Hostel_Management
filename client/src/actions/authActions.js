@@ -56,9 +56,9 @@ export const logoutUser = history => dispatch => {
   setAuthToken(false);
   // set current user to {} and isAuthenticated to false
   dispatch(setCurrentUser({}));
-  // if (history) history.push("/Thankyou");
-  history.push("/Thankyou");
-  // else window.location.href = "/Thankyou";
+  if (history) history.push("/Thankyou");
+  else window.location.href = "/Thankyou";
+  // history.push("/Thankyou");
 };
 
 // Get current User data
