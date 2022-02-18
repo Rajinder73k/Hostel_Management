@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentUser } from "../../actions/authActions";
+import {Link} from 'react-router-dom';
 
 
 // const clean = require("../../img/cleaning.jpg");
@@ -28,9 +29,9 @@ class Dashboard extends Component {
             <img src={student} className="card-img-top" alt="Cleaning" />
             <div className="card-body" style={{ height: '10rem' }}>
               <h5 className="card-title">Student</h5>
-              <a href="/student" className="card-text">
+              <Link to="/student" className="card-text">
                 Add new Student and allot Room or Check Info
-              </a>
+              </Link>
             </div>
           </div>
 
