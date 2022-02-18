@@ -19,7 +19,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
-    .post("api/users/login", userData)
+    .post(`${process.env.REACT_APP_BACKEND}api/users/login`, userData)
     .then(res => {
       // save to localstorage
       const { token } = res.data;
@@ -63,7 +63,7 @@ export const logoutUser = history => dispatch => {
 // Get current User data
 export const getCurrentUser = () => dispatch => {
   axios
-    .post("api/users/current")
+    .post(`${process.env.REACT_APP_BACKEND}api/users/current`)
     .then(res => {
       dispatch({
         type: SET_CURRENT_USER,
