@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect, Switch, Router } from "react-router-dom";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import Home from "./layout/Home";
@@ -18,7 +18,9 @@ class Routes extends Component {
     render() {
         return (
             < div className="App" >
+                <Router>
                 <Navbar />
+                
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <PrivateRoute exact path="/dashboard" component={Dashboard} />
@@ -34,6 +36,7 @@ class Routes extends Component {
                     <Redirect to="/dashboard" />
                 </Switch>
                 <Footer />
+                </Router>
             </div >
         )
     }
