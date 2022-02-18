@@ -10,6 +10,9 @@ const path = require("path");
 
 const app = express();
 
+let cors = require("cors");
+app.use(cors());
+
 app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
