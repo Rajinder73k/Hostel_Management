@@ -2,9 +2,7 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER } from "./types";
-import {useHistory} from 'react-router-dom';
 
-const navigate = useHistory();
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
@@ -60,7 +58,6 @@ export const logoutUser = history => dispatch => {
   dispatch(setCurrentUser({}));
   // if (history) history.push("/Thankyou");
   // else window.location.href = "/Thankyou";
-  navigate.push('/Thankyou')
 };
 
 // Get current User data
